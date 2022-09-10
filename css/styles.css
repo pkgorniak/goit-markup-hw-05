@@ -484,10 +484,17 @@ a {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  transition-property: transform, opacity, visibility;
+  transition-duration: 1250ms;
+  transition-timing-function: ease-in-out;
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal {
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -500,7 +507,30 @@ a {
 }
 
 .button-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background: var(--white-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transition-property: fill, transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-close:hover {
+  fill: var(--brand-color);
+  transform: rotate(180deg);
 }
 
 .is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(3);
 }
